@@ -55,7 +55,8 @@ function pullRequest(ajaxCity) {
             method: "GET"
         }).then(function (onePull) {
             // console.log(onePull);
-            // add error code functionality
+            // TODO: add error code functionality
+            
             // if (response.Error === "Movie not found!") {
             // ADD Error Code here in case of a non value
             // movies.splice(movies.indexOf(clickedMovie), 1);
@@ -128,11 +129,13 @@ function generateWeatherData(weatherData, oneData) {
     // Row 7 5 day cards (for loop)
     var fiveCardRow = $("<div>", { "class": "row" });
     for (let i = 1; i < 6; i++) {
-        var newCard = $("<div>", { "class": "card col-md-2", "id": `FiveDay${i}` });
+        // Generate New Card for each of the 5 days, Populate with date, image of weather (ie: sunny), tempurature, and humidity
+        var newCard = $("<div>", { "class": "card decker col-md-2", "id": `FiveDay${i}` });
         var dateTime = moment().add(i, 'days').format("YYYY MMM DD");
         var fiveDate = $("<h6>", { "class": "row" }).text(dateTime);
         var imgFive = `http://openweathermap.org/img/wn/${oneData.daily[i].weather[0].icon}@2x.png`
         var fiveImage = $("<img>", { "src": imgFive, "class": "row" });
+        // The data has temp in kelvin, convert to farenheit
         var tempFive = (oneData.daily[i].temp.day - 273.15) * 1.80 + 32;
         var fiveTemp = $("<p>", { "class": "row" }).text("Temperature: " + tempFive.toFixed(2) + String.fromCharCode(176) + `F`);
         var fiveHumid = $("<h6>", { "class": "row" }).text("Humidity: " + oneData.daily[i].humidity + String.fromCharCode(37));
@@ -142,6 +145,8 @@ function generateWeatherData(weatherData, oneData) {
     $(".five-day").append(fiveCardRow);
 };
 
+
+// Function to Add Buttons
 function renderButtons(ourCities) {
     $(".sideBar").empty();
     for (let k = 0; k < ourCities.length; k++) {
@@ -149,9 +154,5 @@ function renderButtons(ourCities) {
         $(".sideBar").append(pastCity);
     }
 }
-
-
-// var saveText = $(checkerID).attr("id");
-// Using localStorage.setItem Save to Local Storage
 
 runOnLoad();
