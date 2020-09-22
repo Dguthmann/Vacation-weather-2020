@@ -2,7 +2,7 @@
 ### Author: David Guthmann
 
 github: https://github.com/Dguthmann/  
-<!-- livesite: https://dguthmann.github.io/day-planner-moment/ -->
+livesite: https://dguthmann.github.io/Vacation-weather-2020/
 
 ## List of Contents
 
@@ -10,7 +10,7 @@ index.html
 script.js
 style.css
 README.md
-<!-- screenshot.png -->
+screenshot.png
 
 ## Basic Overview of Project
 
@@ -23,9 +23,9 @@ User can also click on those past searches, and see the data for the city button
 
 ## Screenshot of Website
 
-<!-- ![Site Screenshot](screenshot.png) -->
+![Site Screenshot](screenshot.png)
 
-## resources Used
+## Resources Used
 
 <!-- Add a shout out to zach later -->
 
