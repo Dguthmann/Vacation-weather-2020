@@ -1,0 +1,29 @@
+/* Mainly adding style, for a more dark mode user interface */
+
+header{
+    text-align: center;
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+
+.container{
+    width: 100vw;
+    background-color: gainsboro;
+    color: black;
+}
+
+.decker{
+    background-color: deepskyblue;
+}
+
+.pastCity{
+    color: white;
+    background-color: firebrick;
+}
+
