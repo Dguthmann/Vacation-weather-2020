@@ -65,21 +65,7 @@ function pullRequest(ajaxCity) {
             url: `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=minutely,hourly&appid=${weatherApi}`,
             method: "GET"
         }).then(function (onePull) {
-
-            // console.log(onePull);
-            // TODO: add error code functionality
-
-            // if (response.Error === "Movie not found!") {
-            // ADD Error Code here in case of a non value
-            // movies.splice(movies.indexOf(clickedMovie), 1);
-            // renderButtons();
-            //Add some text inside the movie data to through back, movie not found removed button
-            // $("#movie-view").text("Movie Not Found, Removing Button from list")
-            // } else {
-            // applyMovieData(response);
-            // $("#movie-view").text(JSON.stringify(response));
-            // }
-            // Using localStorage.setItem Save to Local Storage
+            
             generateWeatherData(response, onePull);
         })
     })
