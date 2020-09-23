@@ -8,7 +8,7 @@ function runOnLoad() {
         renderButtons(cities);
         pullRequest(cities[0]);
     }
-    
+
 
 
     //Search Button Click functionality
@@ -18,14 +18,19 @@ function runOnLoad() {
         var searchCity = $("#city-search").val().trim();
         // console.log(searchCity);
         // Call funciton to build the data
-        pullRequest(searchCity);
-        // save search to last item local storage
-        var searchSave = searchCity;
-        localStorage.setItem("lastCity", searchSave);
-        // Add city to buttons if it is unique
-        if (cities.indexOf(searchCity) === -1){
-        cities.unshift(searchCity);
-        renderButtons(cities);
+        var junkcity = pullRequest(searchCity);
+        // Trying to work on fix to boot out errors, must be an asynch thing, since button still renders and still gets saved as local
+        if (junkcity === -1) {
+            return;
+        } else {
+            // save search to last item local storage
+            var searchSave = searchCity;
+            localStorage.setItem("lastCity", searchSave);
+            // Add city to buttons if it is unique
+            if (cities.indexOf(searchCity) === -1) {
+                cities.unshift(searchCity);
+                renderButtons(cities);
+            }
         }
     })
     $(".pastCity").on("click", function (event) {
@@ -45,18 +50,25 @@ function pullRequest(ajaxCity) {
     // console.log(ajaxCity);
     $.ajax({
         url: `https://api.openweathermap.org/data/2.5/weather?q=${ajaxCity}&appid=${weatherApi}&units=imperial`,
-        method: "GET"
+        method: "GET",
+        error: function () {
+            console.error("error");
+            alert("City not found, please check spelling")
+            return(-1);
+        }
     }).then(function (response) {
         // console.log(response);
+
         var cityLat = response.coord.lat;
         var cityLon = response.coord.lon;
         $.ajax({
             url: `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=minutely,hourly&appid=${weatherApi}`,
             method: "GET"
         }).then(function (onePull) {
+
             // console.log(onePull);
             // TODO: add error code functionality
-            
+
             // if (response.Error === "Movie not found!") {
             // ADD Error Code here in case of a non value
             // movies.splice(movies.indexOf(clickedMovie), 1);
