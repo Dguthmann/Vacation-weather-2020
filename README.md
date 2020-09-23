@@ -35,5 +35,5 @@ As of submission this is considered a complete project as there are very large s
 
 ## Changelog
 
-2020-09-22: Adding of error code check (asynch causing issues still), final bug fix and submission
+2020-09-22: Adding of error code check (asynch causing issues still), final bug fix and submission.  
 2020-09-21: Psuedocoding Script, Procedural Generation of html, Button functionality, saving to local.
