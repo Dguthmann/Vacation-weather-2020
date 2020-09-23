@@ -53,7 +53,7 @@ function pullRequest(ajaxCity) {
         method: "GET",
         error: function () {
             console.error("error");
-            alert("City not found, please check spelling")
+            // alert("City not found, please check spelling")
             return(-1);
         }
     }).then(function (response) {
