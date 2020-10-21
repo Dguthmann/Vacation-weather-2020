@@ -6,11 +6,11 @@ livesite: https://dguthmann.github.io/Vacation-weather-2020/
 
 ## List of Contents
 
-index.html
-script.js
-style.css
-README.md
-screenshot.png
+index.html  
+script.js  
+style.css  
+README.md  
+screenshot.png  
 
 ## Basic Overview of Project
 
